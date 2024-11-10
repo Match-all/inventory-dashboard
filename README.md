@@ -27,7 +27,7 @@ A modern, user-friendly inventory dashboard built to manage and track stock, req
 
 ## Screenshots
 
-![Dashboard Screenshot](images/The%20Future%2010_%20Get%20To%20Know%20These%2010%20Black%20Women%20In%20Tech%20_%20Essence.jpeg)
+![Dashboard Screenshot](images/dashoard.png)
 
 ## Installation
 
