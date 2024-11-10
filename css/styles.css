@@ -1,0 +1,280 @@
+/* CSS Stylesheet */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f8fc;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    background-color: #dedede;
+    padding: 20px;
+    border-right: 1px solid #e0e0e0;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.sidebar .logo {
+    font-size: 26px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 25px;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 12px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+/* Support Footer */
+.sidebar .support {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    color: #999;
+}
+
+.sidebar .support p,
+.sidebar .support a {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Main Content */
+.main-content {
+    margin-left: 240px;
+    padding: 20px;
+    flex: 1;
+}
+
+/* Top Navigation */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.top-nav input[type="search"] {
+    width: 60%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* Requisitions Table */
+.requisitions {
+    margin-bottom: 20px;
+}
+
+.requisitions table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.requisitions table th,
+.requisitions table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.requisitions table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.requisitions table td img.profile-img-small {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.order-btn {
+    padding: 6px 12px;
+    background-color: #1e88e5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.order-btn:hover {
+    background-color: #0d47a1;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Section Row to Display Stock and Usage Side by Side */
+.section-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* See All Button Styles */
+.see-all {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: underline;
+    text-align: right; /* Aligns text to the left */
+    /* For flex containers */
+    align-self: flex-end; /* Aligns button to the left in flex containers */
+
+     padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+/* Stock Section */
+.stock {
+    background-color: #dde6f1;
+    padding: 20px;
+    width: 100%; /* Adjust width to ensure they fit side by side */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Usage Section */
+.usage {
+    background-color: #636363;
+    padding: 20px;
+    width: 48%; /* Adjust width to ensure they fit side by side */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stock-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.product-label {
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.progress-bar-inner.red {
+    background-color: #ff4d4d;
+}
+
+.progress-bar-inner.yellow {
+    background-color: #ffc107;
+}
+
+.progress-bar-inner.green {
+    background-color: #28a745;
+}
+
+.remaining {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Usage Chart */
+.usage {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.filter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.filter select,
+.filter input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.date {
+    background-color: #dde6f1;
+    display: flex;
+    padding: 2px;
+    border: #dbd8d8 solid 1px;
+}
