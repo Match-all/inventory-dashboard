@@ -23,11 +23,10 @@ Follow these steps to run the project locally:
 
 1. Clone the repository:
    ```bash
-   git clone hhttps://github.com/Match-all/inventory-dashboard.git
+   git clone https://github.com/Match-all/inventory-dashboard.git
+   ```
 
-   # Inventory Dashboard
-
-```bash
+   ```bash
 /inventory-dashboard
 │
 ├── /css

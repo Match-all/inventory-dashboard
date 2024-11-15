@@ -156,31 +156,33 @@
     </main>
 
     <script>
-        // Wait for the page to load
-        window.onload = function () {
-            var ctx = document.getElementById('usage-chart').getContext('2d');
-    
-            var usageChart = new Chart(ctx, {
-                type: 'bar', // Chart type (bar chart)
-                data: {
-                    labels: ['Stationery', 'Office Supplies'], // X-axis labels
-                    datasets: [{
-                        label: 'Usage',
-                        data: [50, 30], // Y-axis data points
-                        backgroundColor: ['#FF5733', '#33FF57'], // Custom colors for bars
-                        borderColor: ['#FF5733', '#33FF57'], // Border colors for bars
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true, // Make the chart responsive
-                    scales: {
-                        y: {
-                            beginAtZero: true // Ensure the y-axis starts from zero
-                        }
-                    }
-                });
+// Wait for the page to load
+window.onload = function () {
+    var ctx = document.getElementById('usage-chart').getContext('2d');
+
+    var usageChart = new Chart(ctx, {
+        type: 'bar', // Chart type (bar chart)
+        data: {
+            labels: ['Stationery', 'Office Supplies'], // X-axis labels
+            datasets: [{
+                label: 'Usage',
+                data: [50, 30], // Y-axis data points
+                backgroundColor: ['#FF5733', '#33FF57'], // Custom colors for bars
+                borderColor: ['#FF5733', '#33FF57'], // Border colors for bars
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true, // Make the chart responsive
+            scales: {
+                y: {
+                    beginAtZero: true // Ensure the y-axis starts from zero
+                }
+            }
         }
+    });
+};
+
     </script>
     
 
