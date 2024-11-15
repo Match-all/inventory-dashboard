@@ -146,15 +146,6 @@ body {
 }
 
 
-
-
-
-
-
-
-
-
-
 /* Section Row to Display Stock and Usage Side by Side */
 .section-row {
     display: flex;
@@ -249,6 +240,58 @@ body {
     font-weight: bold;
 }
 
+/* Progress bar container */
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Progress bar */
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Progress bar inner colors */
+.progress-bar-inner {
+    height: 100%;
+    transition: width 0.5s ease; /* Smooth transition for width change */
+}
+
+/* Specific colors for the progress bar */
+.red {
+    background-color: #d32f2f; /* Red for low stock */
+}
+
+.green {
+    background-color: #388e3c; /* Green for high stock */
+}
+
+.yellow {
+    background-color: #fbc02d; /* Yellow for medium stock */
+}
+
+/* Stock item styling */
+.stock-item {
+    margin-bottom: 20px;
+}
+
+.product-label {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.remaining {
+    margin-top: 5px;
+    color: #555;
+}
+
+
 /* Usage Chart */
 .usage {
     background-color: #fff;
@@ -277,4 +320,111 @@ body {
     display: flex;
     padding: 2px;
     border: #dbd8d8 solid 1px;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        position: relative;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .sidebar.active {
+        display: block;
+    }
+}
+
+
+/* Media queries for responsiveness */
+
+/* Smartwatches */
+@media (max-width: 320px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .top-nav {
+        flex-direction: column;
+    }
+
+    .profile-img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and down) */
+@media (max-width: 576px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+
+    .top-nav {
+        flex-direction: column;
+    }
+
+    .profile-img {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Tablets (768px and down) */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+
+    .top-nav input[type="search"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Small laptops (1024px and down) */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+}
+
+/* TVs and large screens */
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 300px;
+    }
+
+    .main-content {
+        margin-left: 300px;
+    }
+
+    .profile-img {
+        width: 60px;
+        height: 60px;
+    }
 }
