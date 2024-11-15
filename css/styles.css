@@ -322,6 +322,136 @@ body {
     border: #dbd8d8 solid 1px;
 }
 
+ /* Add the updated stock section CSS here */
+        
+        /* Stock Section */
+        .stock {
+            background-color: #dde6f1;
+            padding: 20px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Stock Item Styling */
+        .stock-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            width: 70%;
+            margin-left: 15px;
+        }
+
+        .progress-bar {
+            flex-grow: 1;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        .progress-bar-inner.red {
+            background-color: #ff4d4d; /* Red for low stock */
+        }
+
+        .progress-bar-inner.yellow {
+            background-color: #ffc107; /* Yellow for medium stock */
+        }
+
+        .progress-bar-inner.green {
+            background-color: #28a745; /* Green for high stock */
+        }
+
+        .remaining {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Stock item layout for responsiveness */
+        @media (max-width: 768px) {
+            .stock-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .progress-container {
+                width: 100%;
+            }
+
+            .product-label {
+                margin-bottom: 8px;
+            }
+        }
+
+        /* Progress Bar Container */
+        .progress-container {
+            width: 100%;
+            height: 15px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Inner Progress Bar for Stock Level */
+        .progress-bar-inner {
+            height: 100%;
+            transition: width 0.5s ease; /* Smooth transition for width change */
+        }
+
+        .red {
+            background-color: #d32f2f; /* Red for low stock */
+        }
+
+        .green {
+            background-color: #388e3c; /* Green for high stock */
+        }
+
+        .yellow {
+            background-color: #fbc02d; /* Yellow for medium stock */
+        }
+
+        .stock-item .remaining {
+            color: #555;
+            font-weight: bold;
+        }
+
+        /* Hover Effects */
+        .stock-item:hover {
+            background-color: #f1f1f1; /* Light hover effect */
+            cursor: pointer;
+        }
+
 @media (max-width: 768px) {
     .sidebar {
         width: 100%;
