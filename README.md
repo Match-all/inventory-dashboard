@@ -15,7 +15,7 @@ A modern, user-friendly inventory dashboard built to manage and track stock, req
 
 # Screenshots on Desk-top
 
-![Dashboard Screenshot](images/dashoard.png)
+![Dashboard Screenshot](images/dashoard0.png)
 
 # Screenshots on mobile
 
