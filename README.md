@@ -31,19 +31,3 @@ Follow these steps to run the project locally:
    ```bash
    git clone https://github.com/Match-all/inventory-dashboard.git
    ```
-
-   ```bash
-/inventory-dashboard
-│
-├── /css
-│   ├── styles.css        # Main stylesheet
-│
-├── /images
-│   ├── [Image Files]     # Various images used in the dashboard
-│
-├── /js
-│   ├── script.js         # JavaScript for dynamic content and charts
-│
-├── index.html            # Main HTML file for the dashboard
-└── README.md             # Project documentation
-
