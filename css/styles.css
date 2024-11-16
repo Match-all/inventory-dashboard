@@ -7,6 +7,13 @@
     box-sizing: border-box;
 }
 
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f7f8fc;
@@ -14,31 +21,50 @@ body {
     display: flex;
     min-height: 100vh;
 }
-
-/* Sidebar */
+/* Sidebar Default Styling */
 .sidebar {
     position: fixed;
+    padding: 20px;
     top: 0;
     left: 0;
-    height: 100%;
-    width: 220px;
+    width: 250px;
     background-color: #dedede;
-    padding: 20px;
     border-right: 1px solid #e0e0e0;
-    overflow-y: auto;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    transition: all 0.3s;
+    overflow: auto;
     z-index: 1000;
 }
 
+
 .sidebar .logo {
-    font-size: 26px;
+    /* font-size: 26px; */
     font-weight: 700;
     color: #2c3e50;
     margin-bottom: 25px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background: #020a3d3d;
 }
+
 
 .sidebar nav ul {
     list-style-type: none;
     padding-left: 0;
+}
+
+
+/* .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} */
+
+.sidebar nav ul li {
+    padding: 15px;
 }
 
 .sidebar nav a {
@@ -52,19 +78,46 @@ body {
     transition: background-color 0.3s ease;
 }
 
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
 .sidebar nav a:hover,
 .sidebar nav a.active {
     background-color: #e0f7fa;
     color: #00796b;
 }
 
+
+
+.sidebar footer {
+    text-align: center;
+    margin-top: auto;
+    background: #020a3d3d;
+    padding: 0.2rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.sidebar footer a {
+    color: rgb(12, 28, 212);
+    text-decoration: none;
+}
+
+
 /* Support Footer */
 .sidebar .support {
     position: absolute;
     bottom: 20px;
     font-size: 14px;
-    color: #999;
+    color: #690707;
 }
+
 
 .sidebar .support p,
 .sidebar .support a {
@@ -72,27 +125,35 @@ body {
     margin-bottom: 5px;
 }
 
-/* Main Content */
+/* Main Content Styling */
 .main-content {
     margin-left: 240px;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 1rem;
+    transition: margin-left 0.3s;
     flex: 1;
 }
 
+
 /* Top Navigation */
+/* Default - General Styling */
 .top-nav {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Vertically center items */
+    margin-bottom: 20px; /* Space below the navigation */
+    gap: 20px; /* Add spacing between elements */
+    padding: 10px; /* General padding */
 }
 
 .top-nav input[type="search"] {
-    width: 60%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    width: 30%; /* Set width of search input */
+    padding: 8px; /* Add padding */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
 }
+
+
 
 .profile-img {
     width: 32px;
@@ -393,6 +454,7 @@ body {
         /* Stock item layout for responsiveness */
         @media (max-width: 768px) {
             .stock-item {
+
                 flex-direction: column;
                 align-items: flex-start;
             }
@@ -452,72 +514,120 @@ body {
             cursor: pointer;
         }
 
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        position: relative;
-        height: auto;
-        margin-bottom: 20px;
-    }
 
-    .main-content {
-        margin-left: 0;
-    }
 
-    .sidebar.active {
-        display: block;
-    }
+
+
+/* .sidebar .logo {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background: #444;
+}
+
+.sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar nav ul li {
+    padding: 15px;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.sidebar footer {
+    margin-top: auto;
+    text-align: center;
+    background: #444;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.sidebar footer a {
+    color: white;
+    text-decoration: none;
 }
 
 
-/* Media queries for responsiveness */
+.main-content {
+    margin-left: 250px;
+    padding: 1rem;
+    transition: margin-left 0.3s;
+} */
 
-/* Smartwatches */
-@media (max-width: 320px) {
+
+
+
+
+/* Responsive Styling Using @media */
+
+/* For very small devices (e.g., Beten Mobile) */
+@media (max-width: 300px) {
     .sidebar {
-        width: 100%;
-        height: auto;
-        position: relative;
+        display: none;
     }
 
-    .main-content {
-        margin-left: 0;
-    }
-
-    .top-nav {
+    .dropdown {
+        display: flex;
         flex-direction: column;
-    }
-
-    .profile-img {
-        width: 30px;
-        height: 30px;
-    }
-}
-
-/* Small devices (landscape phones, 576px and down) */
-@media (max-width: 576px) {
-    .sidebar {
+        position: absolute;
+        background: #333;
+        top: 0;
+        left: 0;
         width: 100%;
-        height: auto;
-        position: relative;
+        z-index: 1000;
+    }
+
+    .dropdown a {
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .dropdown a:hover {
+        background: #444;
     }
 
     .main-content {
         margin-left: 0;
     }
+}
 
-    .top-nav {
-        flex-direction: column;
+/* For smartwatches and small mobile devices */
+@media (max-width: 480px) {
+    .sidebar {
+        display: none;
     }
 
-    .profile-img {
-        width: 30px;
-        height: 30px;
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        background: #333;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .dropdown a {
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .main-content {
+        margin-left: 0;
     }
 }
 
-/* Tablets (768px and down) */
-@media (max-width: 768px) {
+/* For tablets */
+@media (min-width: 481px) and (max-width: 768px) {
     .sidebar {
         width: 200px;
     }
@@ -525,26 +635,32 @@ body {
     .main-content {
         margin-left: 200px;
     }
-
-    .top-nav input[type="search"] {
-        width: 100%;
-        margin-bottom: 10px;
-    }
 }
 
-/* Small laptops (1024px and down) */
-@media (max-width: 1024px) {
+/* For laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
     .sidebar {
-        width: 200px;
+        width: 220px;
     }
 
     .main-content {
-        margin-left: 200px;
+        margin-left: 220px;
     }
 }
 
-/* TVs and large screens */
-@media (min-width: 1200px) {
+/* For desktops and larger devices */
+@media (min-width: 1025px) {
+    .sidebar {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 250px;
+    }
+}
+
+/* For TVs and very large screens */
+@media (min-width: 1441px) {
     .sidebar {
         width: 300px;
     }
@@ -552,9 +668,118 @@ body {
     .main-content {
         margin-left: 300px;
     }
+}
+
+/* General Media Query for Small Screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Sidebar takes full width on smaller screens */
+        height: auto; /* Adjust height */
+        position: static; /* Removes fixed positioning */
+    }
+
+    .main-content {
+        margin-left: 0; /* Remove the left margin */
+        padding: 1rem;
+    }
+
+    .top-nav input[type="search"] {
+        width: 100%; /* Search bar spans full width */
+    }
+
+    .section-row {
+        flex-direction: column; /* Stack sections vertically */
+    }
+
+    .stock, .usage {
+        width: 100%; /* Sections take full width */
+        margin-bottom: 1rem; /* Add spacing between stacked sections */
+    }
+
+    .sidebar-toggle {
+        display: block; /* Show sidebar toggle button */
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 2000;
+    }
+
+    .sidebar {
+        transform: translateX(-100%); /* Hide sidebar off-screen initially */
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Show sidebar when active */
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+    .top-nav {
+        flex-direction: column; /* Stack top navigation items */
+        align-items: flex-start;
+    }
 
     .profile-img {
-        width: 60px;
-        height: 60px;
+        display: none; /* Hide profile image for more space */
+    }
+
+    .order-btn {
+        font-size: 0.8rem; /* Smaller button text */
+        padding: 5px 10px; /* Adjust button padding */
+    }
+
+    .requisitions table td img.profile-img-small {
+        width: 16px; /* Adjust small profile image size */
+        height: 16px;
+    }
+}
+
+/* Smartwatch (very small devices) */
+@media (max-width: 320px) {
+    .top-nav {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px;
+    }
+
+    .top-nav input[type="search"] {
+        width: 80%; /* Full width on small screens */
+    }
+}
+
+/* Mobile devices (small to medium devices) */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: row; /* Horizontal layout */
+        justify-content: space-between; /* Space out items */
+    }
+
+    .top-nav input[type="search"] {
+        width: 50%; /* Moderate width */
+    }
+}
+
+/* Tablet devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .top-nav {
+        justify-content: space-around; /* Spread items evenly */
+        padding: 15px;
+    }
+
+    .top-nav input[type="search"] {
+        width: 40%; /* Slightly smaller width */
+    }
+}
+
+/* Desktop or large devices (e.g., TV) */
+@media (min-width: 1025px) {
+    .top-nav {
+        justify-content: space-between;
+        gap: 30px; /* More spacing for larger screens */
+    }
+
+    .top-nav input[type="search"] {
+        width: 25%; /* Smaller width for large screens */
     }
 }

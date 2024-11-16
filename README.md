@@ -13,9 +13,15 @@ A modern, user-friendly inventory dashboard built to manage and track stock, req
 - **Usage Chart**: Visual representation of inventory usage by category.
 - **Responsive Design**: Designed to be used across devices with a responsive layout.
 
-## Screenshots
+# Screenshots on Desk-top
 
 ![Dashboard Screenshot](images/dashoard.png)
+
+# Screenshots on mobile
+
+![Dashboard Screenshot](images/photo_2024-11-16_12-33-41.jpg)
+![Dashboard Screenshot](images/photo_2024-11-16_12-33-14.jpg)
+
 
 ## Installation
 
