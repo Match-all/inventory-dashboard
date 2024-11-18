@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order List</title>
+    <link rel="stylesheet" href="/css/Requisitions.css">
+</head>
+
+<body>
+    <div class="order-list">
+        <h2>Order List</h2>
+        <p><strong>Name:</strong> Grand Marshal</p>
+        <p><strong>Position:</strong> Junior Software Engineer</p>
+        <p><strong>Mobile:</strong> 01718332233</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Stock Availability</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Pencil (2B)</td>
+                    <td>1 Dozen</td>
+                    <td>10 Dozen</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">🗑️</button></td>
+                </tr>
+                <tr>
+                    <td>Sharpener</td>
+                    <td>1 Single</td>
+                    <td>100</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">🗑️</button></td>
+                </tr>
+                <tr>
+                    <td>Drawing Paper</td>
+                    <td>1 Quire</td>
+                    <td>200 Quires</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">🗑️</button></td>
+                </tr>
+                <tr>
+                    <td>CAT5 Cable</td>
+                    <td>2 Meters</td>
+                    <td>10 Meters</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">🗑️</button></td>
+                </tr>
+                <tr>
+                    <td>Sticky Notes</td>
+                    <td>2 Packets</td>
+                    <td>20 Packets</td>
+                    <td><button class="delete-btn" onclick="deleteRow(this)">🗑️</button></td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="actions">
+            <button class="reject" onclick="handleRequisition('reject')">Reject</button>
+            <button class="approve" onclick="handleRequisition('approve')">Approve</button>
+        </div>
+    </div>
+
+    <script src="/js/Requisitions.js"></script>
+</body>
+
+</html>

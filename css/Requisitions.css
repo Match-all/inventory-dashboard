@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f4f4f4;
+}
+
+.order-list {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 400px;
+}
+
+.order-list h2 {
+  margin-top: 0;
+}
+
+.order-list table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.order-list table, .order-list th, .order-list td {
+  border: 1px solid #ddd;
+}
+
+.order-list th, .order-list td {
+  padding: 8px;
+  text-align: left;
+}
+
+.order-list th {
+  background-color: #f2f2f2;
+}
+
+.order-list .actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.order-list .actions button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.order-list .actions .reject {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.order-list .actions .approve {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #e74c3c;
+  cursor: pointer;
+}
