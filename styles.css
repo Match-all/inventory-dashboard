@@ -87,6 +87,13 @@ body {
 }
 
 
+a#requisitions-link:hover {
+    color: #2ecc71; 
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+
 .sidebar nav a:hover,
 .sidebar nav a.active {
     background-color: #e0f7fa;
@@ -513,58 +520,6 @@ body {
             background-color: #f1f1f1; /* Light hover effect */
             cursor: pointer;
         }
-
-
-
-
-
-/* .sidebar .logo {
-    text-align: center;
-    padding: 1rem;
-    font-size: 1.5rem;
-    background: #444;
-}
-
-.sidebar nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.sidebar nav ul li {
-    padding: 15px;
-}
-
-.sidebar nav ul li a {
-    text-decoration: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.sidebar footer {
-    margin-top: auto;
-    text-align: center;
-    background: #444;
-    padding: 1rem;
-    font-size: 0.9rem;
-}
-
-.sidebar footer a {
-    color: white;
-    text-decoration: none;
-}
-
-
-.main-content {
-    margin-left: 250px;
-    padding: 1rem;
-    transition: margin-left 0.3s;
-} */
-
-
-
 
 
 /* Responsive Styling Using @media */

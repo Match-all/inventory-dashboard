@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
   font-family: Arial, sans-serif;
   display: flex;
@@ -5,64 +6,126 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #f4f4f4;
+  margin: 0;
 }
 
+/* Order List Container */
 .order-list {
   background: #fff;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 400px;
+  width: 60%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: auto; /* For better responsiveness */
 }
 
 .order-list h2 {
-  margin-top: 0;
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 24px;
+  color: #333;
 }
 
-.order-list table {
+/* Table Styling */
+table {
   width: 100%;
   border-collapse: collapse;
+  margin-top: 20px;
 }
 
-.order-list table, .order-list th, .order-list td {
+th, td {
   border: 1px solid #ddd;
-}
-
-.order-list th, .order-list td {
-  padding: 8px;
+  padding: 10px;
   text-align: left;
 }
 
-.order-list th {
-  background-color: #f2f2f2;
+th {
+  background-color: #f4f4f4;
+  font-weight: bold;
 }
 
-.order-list .actions {
+tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Button Styling */
+button {
+  font-family: inherit;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Action Buttons */
+.actions {
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
 }
 
-.order-list .actions button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.actions button {
+  flex: 1;
+  margin: 0 10px;
 }
 
-.order-list .actions .reject {
+.actions .reject {
   background-color: #e74c3c;
   color: #fff;
 }
 
-.order-list .actions .approve {
+.actions .reject:hover {
+  background-color: #c0392b;
+}
+
+.actions .approve {
   background-color: #2ecc71;
   color: #fff;
 }
 
+.actions .approve:hover {
+  background-color: #27ae60;
+}
+
+/* Delete Button */
 .delete-btn {
   background: none;
   border: none;
   color: #e74c3c;
+  font-size: 16px;
   cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.delete-btn:hover {
+  color: #c0392b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .order-list {
+    width: 90%;
+    padding: 15px;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  button {
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  th, td {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
 }

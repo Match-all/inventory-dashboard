@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inventory Dashboard</title>
-    <link rel="stylesheet" href="/styles.css">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -18,7 +19,12 @@
             <nav>
                 <ul>
                     <li><a href="#" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-                    <li><a href="/HTML/Requisitions.html" id="requisitions-link"><i class="fas fa-file-alt"></i> Requisitions</a></li>
+                    <li>
+                        <a href="/HTML/Requisitions.html" id="requisitions-link">
+                            <i class="fas fa-file-alt"></i> Requisitions
+                        </a>
+                    </li>
+                    
                     <li><a href="#"><i class="fas fa-warehouse"></i> Stock</a></li>
                     <li><a href="#"><i class="fas fa-users"></i> Employees</a></li>
                     <li><a href="#"><i class="fas fa-chart-line"></i> Report</a></li>
@@ -229,11 +235,21 @@ window.onload = renderStockItems;
 
     </script>
 
+    <script>
+        // Add a click event listener to the Requisitions link
+// document.getElementById('requisitions-link').addEventListener('click', function (event) {
+//     event.preventDefault();
+     // Prevent the default navigation
+    // alert('Requisitions link clicked!');
+// });
+
+    </script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     <script src="/script.js"></script>
+    <script src="/js/rowClicked.js"></script>
+
 </body>
 
 </html>
