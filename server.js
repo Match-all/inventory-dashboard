@@ -1,6 +1,5 @@
 const express = require('express');
 const path = require('path');
-const http = require('http');
 
 // Function to calculate Inventory Turnover
 function calculateInventoryTurnover(cogs, averageInventory) {
@@ -48,10 +47,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// Create an HTTP server
-const server = http.createServer(app);
-
-app.get('/calculate-kpis', (req, res) => {
+// Example endpoint for KPI calculations
+app.get('/api/kpis', (req, res) => {
     // Sample data
     const cogs = 100000;
     const averageInventory = 20000;
@@ -77,12 +74,9 @@ app.get('/calculate-kpis', (req, res) => {
         backorderRate: calculateBackorderRate(backorderedItems, totalItemsOrdered)
     };
 
-    // Send response
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(kpis));
+    res.json(kpis);
 });
 
-// Start the server
-server.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
 });
