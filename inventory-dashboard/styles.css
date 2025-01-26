@@ -1,0 +1,740 @@
+/* CSS Stylesheet */
+
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f8fc;
+    color: #333;
+    display: flex;
+    min-height: 100vh;
+}
+/* Sidebar Default Styling */
+.sidebar {
+    position: fixed;
+    padding: 20px;
+    top: 0;
+    left: 0;
+    width: 250px;
+    background-color: #dedede;
+    border-right: 1px solid #e0e0e0;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    transition: all 0.3s;
+    overflow: auto;
+    z-index: 1000;
+}
+
+
+.sidebar .logo {
+    /* font-size: 26px; */
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 1.5rem;
+    background: #020a3d3d;
+}
+
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+
+/* .sidebar nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+} */
+
+.sidebar nav ul li {
+    padding: 15px;
+}
+
+.sidebar nav a {
+    display: block;
+    padding: 12px;
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a {
+    text-decoration: none;
+    color: #2c3e50;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+a#requisitions-link:hover {
+    color: #2ecc71; 
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+    background-color: #e0f7fa;
+    color: #00796b;
+}
+
+
+
+.sidebar footer {
+    text-align: center;
+    margin-top: auto;
+    background: #020a3d3d;
+    padding: 0.2rem;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+.sidebar footer a {
+    color: rgb(12, 28, 212);
+    text-decoration: none;
+}
+
+
+/* Support Footer */
+.sidebar .support {
+    position: absolute;
+    bottom: 20px;
+    font-size: 14px;
+    color: #690707;
+}
+
+
+.sidebar .support p,
+.sidebar .support a {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Main Content Styling */
+.main-content {
+    margin-left: 240px;
+    /* padding: 20px; */
+    padding: 1rem;
+    transition: margin-left 0.3s;
+    flex: 1;
+}
+
+
+/* Top Navigation */
+/* Default - General Styling */
+.top-nav {
+    display: flex;
+    justify-content: flex-start; /* Align items to the left */
+    align-items: center; /* Vertically center items */
+    margin-bottom: 20px; /* Space below the navigation */
+    gap: 20px; /* Add spacing between elements */
+    padding: 10px; /* General padding */
+}
+
+.top-nav input[type="search"] {
+    width: 30%; /* Set width of search input */
+    padding: 8px; /* Add padding */
+    border: 1px solid #ccc; /* Border style */
+    border-radius: 4px; /* Rounded corners */
+}
+
+
+
+.profile-img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* Requisitions Table */
+.requisitions {
+    margin-bottom: 20px;
+}
+
+.requisitions table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.requisitions table th,
+.requisitions table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.requisitions table th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+}
+
+.requisitions table td img.profile-img-small {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.order-btn {
+    padding: 6px 12px;
+    background-color: #1e88e5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.order-btn:hover {
+    background-color: #0d47a1;
+}
+
+
+/* Section Row to Display Stock and Usage Side by Side */
+.section-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* See All Button Styles */
+.see-all {
+    background-color: transparent;
+    color: #007bff;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-decoration: underline;
+    text-align: right; /* Aligns text to the left */
+    /* For flex containers */
+    align-self: flex-end; /* Aligns button to the left in flex containers */
+
+     padding: 15px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+/* Stock Section */
+.stock {
+    background-color: #dde6f1;
+    padding: 20px;
+    width: 100%; /* Adjust width to ensure they fit side by side */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Usage Section */
+.usage {
+    background-color: #636363;
+    padding: 20px;
+    width: 48%; /* Adjust width to ensure they fit side by side */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stock-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.product-label {
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.progress-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+}
+
+.progress-bar {
+    flex-grow: 1;
+    height: 10px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.progress-bar-inner {
+    height: 100%;
+    border-radius: 5px;
+}
+
+.progress-bar-inner.red {
+    background-color: #ff4d4d;
+}
+
+.progress-bar-inner.yellow {
+    background-color: #ffc107;
+}
+
+.progress-bar-inner.green {
+    background-color: #28a745;
+}
+
+.remaining {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Progress bar container */
+.progress-container {
+    width: 100%;
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+/* Progress bar */
+.progress-bar {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Progress bar inner colors */
+.progress-bar-inner {
+    height: 100%;
+    transition: width 0.5s ease; /* Smooth transition for width change */
+}
+
+/* Specific colors for the progress bar */
+.red {
+    background-color: #d32f2f; /* Red for low stock */
+}
+
+.green {
+    background-color: #388e3c; /* Green for high stock */
+}
+
+.yellow {
+    background-color: #fbc02d; /* Yellow for medium stock */
+}
+
+/* Stock item styling */
+.stock-item {
+    margin-bottom: 20px;
+}
+
+.product-label {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.remaining {
+    margin-top: 5px;
+    color: #555;
+}
+
+
+/* Usage Chart */
+.usage {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+.filter {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.filter select,
+.filter input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.date {
+    background-color: #dde6f1;
+    display: flex;
+    padding: 2px;
+    border: #dbd8d8 solid 1px;
+}
+
+ /* Add the updated stock section CSS here */
+        
+        /* Stock Section */
+        .stock {
+            background-color: #dde6f1;
+            padding: 20px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        /* Stock Item Styling */
+        .stock-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-label {
+            font-weight: bold;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .progress-container {
+            display: flex;
+            align-items: center;
+            width: 70%;
+            margin-left: 15px;
+        }
+
+        .progress-bar {
+            flex-grow: 1;
+            height: 12px;
+            background-color: #e0e0e0;
+            border-radius: 6px;
+            margin-right: 10px;
+        }
+
+        .progress-bar-inner {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.5s ease-in-out; /* Smooth transition */
+        }
+
+        .progress-bar-inner.red {
+            background-color: #ff4d4d; /* Red for low stock */
+        }
+
+        .progress-bar-inner.yellow {
+            background-color: #ffc107; /* Yellow for medium stock */
+        }
+
+        .progress-bar-inner.green {
+            background-color: #28a745; /* Green for high stock */
+        }
+
+        .remaining {
+            font-size: 14px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        /* Stock item layout for responsiveness */
+        @media (max-width: 768px) {
+            .stock-item {
+
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .progress-container {
+                width: 100%;
+            }
+
+            .product-label {
+                margin-bottom: 8px;
+            }
+        }
+
+        /* Progress Bar Container */
+        .progress-container {
+            width: 100%;
+            height: 15px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Inner Progress Bar for Stock Level */
+        .progress-bar-inner {
+            height: 100%;
+            transition: width 0.5s ease; /* Smooth transition for width change */
+        }
+
+        .red {
+            background-color: #d32f2f; /* Red for low stock */
+        }
+
+        .green {
+            background-color: #388e3c; /* Green for high stock */
+        }
+
+        .yellow {
+            background-color: #fbc02d; /* Yellow for medium stock */
+        }
+
+        .stock-item .remaining {
+            color: #555;
+            font-weight: bold;
+        }
+
+        /* Hover Effects */
+        .stock-item:hover {
+            background-color: #f1f1f1; /* Light hover effect */
+            cursor: pointer;
+        }
+
+
+/* Responsive Styling Using @media */
+
+/* For very small devices (e.g., Beten Mobile) */
+@media (max-width: 300px) {
+    .sidebar {
+        display: none;
+    }
+
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        background: #333;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .dropdown a {
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .dropdown a:hover {
+        background: #444;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* For smartwatches and small mobile devices */
+@media (max-width: 480px) {
+    .sidebar {
+        display: none;
+    }
+
+    .dropdown {
+        display: flex;
+        flex-direction: column;
+        background: #333;
+        position: relative;
+        z-index: 1000;
+    }
+
+    .dropdown a {
+        padding: 15px;
+        color: white;
+        text-decoration: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* For tablets */
+@media (min-width: 481px) and (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+
+    .main-content {
+        margin-left: 200px;
+    }
+}
+
+/* For laptops */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+    }
+}
+
+/* For desktops and larger devices */
+@media (min-width: 1025px) {
+    .sidebar {
+        width: 250px;
+    }
+
+    .main-content {
+        margin-left: 250px;
+    }
+}
+
+/* For TVs and very large screens */
+@media (min-width: 1441px) {
+    .sidebar {
+        width: 300px;
+    }
+
+    .main-content {
+        margin-left: 300px;
+    }
+}
+
+/* General Media Query for Small Screens */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; /* Sidebar takes full width on smaller screens */
+        height: auto; /* Adjust height */
+        position: static; /* Removes fixed positioning */
+    }
+
+    .main-content {
+        margin-left: 0; /* Remove the left margin */
+        padding: 1rem;
+    }
+
+    .top-nav input[type="search"] {
+        width: 100%; /* Search bar spans full width */
+    }
+
+    .section-row {
+        flex-direction: column; /* Stack sections vertically */
+    }
+
+    .stock, .usage {
+        width: 100%; /* Sections take full width */
+        margin-bottom: 1rem; /* Add spacing between stacked sections */
+    }
+
+    .sidebar-toggle {
+        display: block; /* Show sidebar toggle button */
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 2000;
+    }
+
+    .sidebar {
+        transform: translateX(-100%); /* Hide sidebar off-screen initially */
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0); /* Show sidebar when active */
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+    .top-nav {
+        flex-direction: column; /* Stack top navigation items */
+        align-items: flex-start;
+    }
+
+    .profile-img {
+        display: none; /* Hide profile image for more space */
+    }
+
+    .order-btn {
+        font-size: 0.8rem; /* Smaller button text */
+        padding: 5px 10px; /* Adjust button padding */
+    }
+
+    .requisitions table td img.profile-img-small {
+        width: 16px; /* Adjust small profile image size */
+        height: 16px;
+    }
+}
+
+/* Smartwatch (very small devices) */
+@media (max-width: 320px) {
+    .top-nav {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px;
+    }
+
+    .top-nav input[type="search"] {
+        width: 80%; /* Full width on small screens */
+    }
+}
+
+/* Mobile devices (small to medium devices) */
+@media (max-width: 768px) {
+    .top-nav {
+        flex-direction: row; /* Horizontal layout */
+        justify-content: space-between; /* Space out items */
+    }
+
+    .top-nav input[type="search"] {
+        width: 50%; /* Moderate width */
+    }
+}
+
+/* Tablet devices */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .top-nav {
+        justify-content: space-around; /* Spread items evenly */
+        padding: 15px;
+    }
+
+    .top-nav input[type="search"] {
+        width: 40%; /* Slightly smaller width */
+    }
+}
+
+/* Desktop or large devices (e.g., TV) */
+@media (min-width: 1025px) {
+    .top-nav {
+        justify-content: space-between;
+        gap: 30px; /* More spacing for larger screens */
+    }
+
+    .top-nav input[type="search"] {
+        width: 25%; /* Smaller width for large screens */
+    }
+}

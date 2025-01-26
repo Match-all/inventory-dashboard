@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shema Park - Ethiopian Cultural Weaving Products</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+ 
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="./images/logo.png" alt="Shema Park Logo" style="height: 40px; margin-right: 10px;">
+                Shema Park
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pages/contact.html">Contact</a>
+                    </li>
+                </ul>
+                <!-- Auth Links -->
+                <div class="d-flex" id="authLinks">
+                    <!-- Show when logged out -->
+                    <div class="logged-out-links">
+                        <button class="btn btn-outline-light me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+                        <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#registerModal">Register</button>
+                    </div>
+                    <!-- Show when logged in -->
+                    <div class="logged-in-links d-none">
+                        <div class="dropdown">
+                            <button class="btn btn-outline-light dropdown-toggle" type="button" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-circle"></i>
+                                <span id="userNameDisplay"></span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                                <li><a class="dropdown-item" href="pages/profile.html">
+                                    <i class="bi bi-person"></i> My Profile
+                                </a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#" onclick="handleLogout()">
+                                    <i class="bi bi-box-arrow-right"></i> Sign Out
+                                </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center">
+            <h1>Welcome to Shema Park</h1>
+            <p class="lead">Discover authentic Ethiopian cultural weaving products</p>
+            <a href="pages/products.html" class="btn btn-primary btn-lg">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="container py-5">
+        <div class="featured-products">
+            <h2 class="text-center mb-4">Featured Products</h2>
+            <p>At Shema Park, we proudly showcase a selection of our finest handcrafted creations that celebrate Ethiopian culture and craftsmanship. Each product reflects the skill and dedication of our artisans, ensuring a unique and authentic experience for our customers.</p>
+            <hr>
+            <div id="featuredProductsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/shema-product1.jpg" class="card-img-top" alt="Traditional Handwoven Cloth">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Traditional Handwoven Cloth</h5>
+                                        <p class="card-text">Experience the beauty of Ethiopian culture with our traditional handwoven cloths crafted with precision and love.</p>
+                                        <a href="#" class="btn btn-primary">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/shema-product2.jpg" class="card-img-top" alt="Cultural Accessories">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Cultural Accessories</h5>
+                                        <p class="card-text">Enhance your look with unique accessories inspired by Ethiopian artistry and heritage.</p>
+                                        <a href="#" class="btn btn-primary">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/shema-product3.jpg" class="card-img-top" alt="Ethiopian Home Decor">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Ethiopian Home Decor</h5>
+                                        <p class="card-text">Decorate your home with pieces that embody Ethiopian culture and timeless design.</p>
+                                        <a href="#" class="btn btn-primary">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/shema-product4.jpg" class="card-img-top" alt="Artisanal Jewelry">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Artisanal Jewelry</h5>
+                                        <p class="card-text">Discover elegant jewelry pieces made by skilled Ethiopian artisans, perfect for any occasion.</p>
+                                        <a href="#" class="btn btn-primary">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/shema-product5.jpg" class="card-img-top" alt="Handcrafted Bags">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Handcrafted Bags</h5>
+                                        <p class="card-text">Carry a piece of Ethiopian tradition with our beautiful handcrafted bags, blending style and practicality.</p>
+                                        <a href="#" class="btn btn-primary">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="card">
+                                    <img src="images/shema-product6.jpg" class="card-img-top" alt="Custom Shema Outfits">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Custom Shema Outfits</h5>
+                                        <p class="card-text">Tailored Shema outfits to suit your unique style and preferences, showcasing Ethiopian elegance.</p>
+                                        <a href="#" class="btn btn-primary">View Product</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#featuredProductsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#featuredProductsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Categories -->
+    <section class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Product Categories</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card">
+                        <img src="images/Shema Collection.png" class="card-img-top" alt="Shema">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Shema Collection</h5>
+                            <a href="pages/products.html?category=shema" class="btn btn-outline-primary">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card">
+                        <img src="images/Tibeb Collection.jpg" class="card-img-top" alt="Tibeb">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Tibeb Collection</h5>
+                            <a href="pages/products.html?category=tibeb" class="btn btn-outline-primary">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card category-card">
+                        <img src="images/netela-category.jpg" class="card-img-top" alt="Netela">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Netela Collection</h5>
+                            <a href="pages/products.html?category=netela" class="btn btn-outline-primary">View Collection</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="featured-collection">
+        <div class="container">
+            <h3 class="mb-4">Explore Our Featured Collection</h3>
+            <ol class="list-unstyled">
+                <li class="mb-3">
+                    <strong>Traditional Shema Garments</strong>
+                    <ul class="list-unstyled">
+                        <li class="mb-1">Elegant, handwoven cultural clothing, perfect for special occasions and celebrations.</li>
+                        <li class="mb-1">Vibrant colors and intricate patterns inspired by Ethiopian heritage.</li>
+                    </ul>
+                </li>
+                <li class="mb-3">
+                    <strong>Handcrafted Scarves</strong>
+                    <ul class="list-unstyled">
+                        <li class="mb-1">Lightweight and beautifully designed scarves made from natural fibers.</li>
+                        <li class="mb-1">Perfect as a stylish accessory or a thoughtful gift.</li>
+                    </ul>
+                </li>
+                <li class="mb-3">
+                    <strong>Decorative Home Textiles</strong>
+                    <ul class="list-unstyled">
+                        <li class="mb-1">Unique woven table runners, pillow covers, and wall hangings.</li>
+                        <li class="mb-1">Bring a touch of Ethiopian tradition to your living space.</li>
+                    </ul>
+                </li>
+                <li class="mb-3">
+                    <strong>Custom Orders</strong>
+                    <ul class="list-unstyled">
+                        <li class="mb-1">Tailored products designed to meet your specific needs.</li>
+                        <li class="mb-1">Personalize colors, patterns, and styles for a one-of-a-kind piece.</li>
+                    </ul>
+                </li>
+            </ol>
+            <hr class="my-4">
+            <h3 class="mb-4">Why Choose Shema Park's Products?</h3>
+            <ul class="list-unstyled">
+                <li class="mb-1"><strong>Authenticity</strong>: Products made using traditional weaving techniques.</li>
+                <li class="mb-1"><strong>Quality</strong>: Durable and beautifully crafted items.</li>
+                <li class="mb-1"><strong>Cultural Connection</strong>: Celebrate Ethiopian heritage in your everyday life.</li>
+            </ul>
+            <p class="mb-5">Discover the artistry and passion behind each piece by exploring our full collection. Let us bring a touch of Ethiopia's cultural beauty to your world!</p>
+        </div>
+    </section>
+
+    <!-- About Preview -->
+    <section class="about-preview container py-5">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h2 class="mb-4">About Shema Park</h2>
+                <p class="mb-4">Discover the rich heritage of Ethiopian weaving at Shema Park. We bring you authentic, handcrafted textiles that combine traditional techniques with contemporary designs.</p>
+                <a href="pages/about.html" class="btn btn-outline-primary">Learn More</a>
+            </div>
+            <div class="col-md-6">
+                <img src="images/about-preview.jpg" class="img-fluid rounded" alt="About Shema Park">
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter bg-light py-5">
+        <div class="container text-center">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to our newsletter for the latest products and Ethiopian cultural insights.</p>
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                            <button class="btn btn-primary" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: info@shemapark.com</p>
+                    <p>Phone: +251 123 456 789</p>
+                    <p>Address: Arba Minch, Ethiopia</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="pages/products.html">Products</a></li>
+                        <li><a href="pages/about.html">About Us</a></li>
+                        <li><a href="pages/contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Follow Us</h5>
+                    <div class="social-links">
+                        <a href="#" class="me-2"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="me-2"><i class="bi bi-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2024 Shema Park. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+    <script>
+        // Check auth status on page load
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('http://localhost:3000/api/check-auth', {
+                    credentials: 'include'
+                });
+                const data = await response.json();
+
+                const loggedOutLinks = document.querySelector('.logged-out-links');
+                const loggedInLinks = document.querySelector('.logged-in-links');
+                const userNameDisplay = document.getElementById('userNameDisplay');
+
+                if (data.success) {
+                    // User is logged in
+                    loggedOutLinks.classList.add('d-none');
+                    loggedInLinks.classList.remove('d-none');
+                    userNameDisplay.textContent = data.user.name;
+                } else {
+                    // User is logged out
+                    loggedOutLinks.classList.remove('d-none');
+                    loggedInLinks.classList.add('d-none');
+                }
+            } catch (error) {
+                console.error('Auth check error:', error);
+            }
+        });
+
+        // Function to switch between modals
+        function switchModal(closeModalId, openModalId) {
+            const closeModal = bootstrap.Modal.getInstance(document.getElementById(closeModalId));
+            closeModal.hide();
+            const openModal = new bootstrap.Modal(document.getElementById(openModalId));
+            openModal.show();
+        }
+    </script>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" onsubmit="handleLogin(event)">
+                        <div class="mb-3">
+                            <label for="loginEmail" class="form-label">Email address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" id="loginEmail" name="email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                <input type="password" class="form-control" id="loginPassword" name="password" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('loginPassword')">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <p class="text-center mb-0">
+                        Don't have an account? 
+                        <a href="#" onclick="switchModal('loginModal', 'registerModal')">Register here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Create Account</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm" onsubmit="handleRegister(event)">
+                        <div class="mb-3">
+                            <label for="registerName" class="form-label">Full Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                <input type="text" class="form-control" id="registerName" name="name" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerEmail" class="form-label">Email address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                <input type="email" class="form-control" id="registerEmail" name="email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                <input type="password" class="form-control" id="registerPassword" name="password" 
+                                    pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" 
+                                    title="Password must be at least 8 characters long and include letters and numbers"
+                                    required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('registerPassword')">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Confirm Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                <input type="password" class="form-control" id="confirmPassword" required>
+                                <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirmPassword')">
+                                    <i class="bi bi-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="termsAccept" required>
+                            <label class="form-check-label" for="termsAccept">I accept the Terms & Conditions</label>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Create Account</button>
+                        </div>
+                    </form>
+                    <hr>
+                    <p class="text-center mb-0">
+                        Already have an account? 
+                        <a href="#" onclick="switchModal('registerModal', 'loginModal')">Login here</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

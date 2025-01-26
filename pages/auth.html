@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - Shema Park</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">
+                <img src="../images/logo.png" alt="Shema Park Logo" style="height: 40px; margin-right: 10px;">
+                Shema Park
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Auth Container -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <!-- Auth Tabs -->
+                <ul class="nav nav-pills mb-4 justify-content-center" id="authTabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" data-bs-toggle="pill" href="#login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-bs-toggle="pill" href="#register">Register</a>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content">
+                    <!-- Login Form -->
+                    <div class="tab-pane fade show active" id="login">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <h4 class="card-title text-center mb-4">Login to Your Account</h4>
+                                <form id="loginForm" onsubmit="handleLogin(event)">
+                                    <div class="mb-3">
+                                        <label for="loginEmail" class="form-label">Email address</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                            <input type="email" class="form-control" id="loginEmail" name="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="loginPassword" class="form-label">Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                            <input type="password" class="form-control" id="loginPassword" name="password" required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('loginPassword')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary">Login</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Register Form -->
+                    <div class="tab-pane fade" id="register">
+                        <div class="card shadow">
+                            <div class="card-body p-4">
+                                <h4 class="card-title text-center mb-4">Create New Account</h4>
+                                <form id="registerForm" onsubmit="handleRegister(event)">
+                                    <div class="mb-3">
+                                        <label for="registerName" class="form-label">Full Name</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-person"></i></span>
+                                            <input type="text" class="form-control" id="registerName" name="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registerEmail" class="form-label">Email address</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                                            <input type="email" class="form-control" id="registerEmail" name="email" required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="registerPassword" class="form-label">Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                            <input type="password" class="form-control" id="registerPassword" name="password" 
+                                                pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" 
+                                                title="Password must be at least 8 characters long and include letters and numbers"
+                                                required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('registerPassword')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text"><i class="bi bi-key"></i></span>
+                                            <input type="password" class="form-control" id="confirmPassword" required>
+                                            <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('confirmPassword')">
+                                                <i class="bi bi-eye"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="termsAccept" required>
+                                        <label class="form-check-label" for="termsAccept">I accept the Terms & Conditions</label>
+                                    </div>
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary">Create Account</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+
+    <script>
+        // Check for hash in URL to switch to register tab
+        if (window.location.hash === '#register') {
+            document.querySelector('[href="#register"]').click();
+        }
+    </script>
+</body>
+</html> 

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Shema Park</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="../index.html">Shema Park</a>
+        </div>
+    </nav>
+
+    <!-- Checkout Form -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-md-8">
+                <h2>Checkout</h2>
+                <form id="checkoutForm">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Full Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Shipping Address</label>
+                        <textarea class="form-control" id="address" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="card" class="form-label">Card Number</label>
+                        <input type="text" class="form-control" id="card" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Place Order</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Order Summary</h5>
+                        <div id="orderItems"></div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <strong>Total:</strong>
+                            <strong>$<span id="orderTotal">0.00</span></strong>
+                        </div>
+                        <button class="btn btn-primary" onclick="processPayment()">
+                            Pay <span id="payment-amount">$0.00</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Payment Successful</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Your payment was successful! A confirmation email has been sent to you.</p>
+                    <button class="btn btn-success" onclick="downloadReceipt()">Download Receipt</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Display order summary
+            const orderItems = document.getElementById('orderItems');
+            const orderTotal = document.getElementById('orderTotal');
+            const paymentAmount = document.getElementById('payment-amount');
+            
+            orderItems.innerHTML = cart.items.map(item => `
+                <div class="d-flex justify-content-between mb-2">
+                    <span>${item.name} × ${item.quantity}</span>
+                    <span>$${(item.price * item.quantity).toFixed(2)}</span>
+                </div>
+            `).join('');
+            
+            const total = cart.getTotal().toFixed(2);
+            orderTotal.textContent = total;
+            paymentAmount.textContent = `$${total}`;
+
+            // Handle form submission
+            document.getElementById('checkoutForm').addEventListener('submit', (e) => {
+                e.preventDefault();
+                processPayment();
+            });
+        });
+
+        async function processPayment() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const card = document.getElementById('card').value;
+            const paymentAmount = document.getElementById('orderTotal').textContent;
+
+            if (!name || !email || !address || !card) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+
+            console.log('Processing payment for:', name, 'Amount:', paymentAmount);
+
+            // Simulate payment processing
+            setTimeout(async () => {
+                if (paymentAmount) {
+                    // Save order to CSV
+                    const saveResult = await saveOrderToCSV(name, email, address, paymentAmount);
+                    if (saveResult) {
+                        // Show success modal
+                        const successModal = new bootstrap.Modal(document.getElementById('successModal'));
+                        successModal.show();
+                        // Clear cart
+                        cart.clearCart();
+                    } else {
+                        alert('Failed to save order. Please try again.');
+                    }
+                } else {
+                    alert('Failed to process payment. Please try again.');
+                }
+            }, 1000);
+        }
+
+        async function saveOrderToCSV(name, email, address, total) {
+            try {
+                const response = await fetch('/api/saveOrder', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        userId: email, // This should be replaced with the actual user ID from the session
+                        orderId: Math.floor(Math.random() * 1000000),
+                        date: new Date().toISOString(),
+                        status: 'Completed',
+                        items: cart.items,
+                        total: total
+                    })
+                });
+                const data = await response.json();
+                if (data.success) {
+                    console.log('Order saved successfully');
+                    return true;
+                } else {
+                    console.error('Failed to save order');
+                    return false;
+                }
+            } catch (error) {
+                console.error('Error saving order:', error);
+                return false;
+            }
+        }
+
+        function downloadReceipt() {
+            const receiptContent = `
+                Order Confirmation
+                ------------------
+                Name: ${document.getElementById('name').value}
+                Email: ${document.getElementById('email').value}
+                Address: ${document.getElementById('address').value}
+                Total: $${document.getElementById('orderTotal').textContent}
+                Confirmation Number: ${Math.floor(Math.random() * 1000000)}
+            `;
+
+            const blob = new Blob([receiptContent], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'receipt.txt';
+            link.click();
+        }
+    </script>
+</body>
+</html> 
