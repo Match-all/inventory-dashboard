@@ -1,0 +1,211 @@
+/* styles.css */
+/* Base Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+/* Navigation */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* About Header */
+.about-header {
+    padding: 6rem 0 3rem;
+    margin-top: 76px; /* Account for fixed navbar */
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('../images/about-bg.jpg') center/cover;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.about-header h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+}
+
+.breadcrumb-item.active {
+    color: rgba(255,255,255,0.8);
+}
+
+/* Content Sections */
+.container.py-5 {
+    padding: 4rem 0;
+}
+
+h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #3498db;
+}
+
+.row.mb-5 {
+    margin-bottom: 4rem !important;
+}
+
+.img-fluid.rounded {
+    border-radius: 8px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.img-fluid.rounded:hover {
+    transform: translateY(-5px);
+}
+
+/* Why Shema Park List */
+.list-unstyled li {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.list-unstyled li:hover {
+    transform: translateX(10px);
+}
+
+.bi-check-circle-fill {
+    font-size: 1.2rem;
+}
+
+/* Team Section */
+.team-member {
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.rounded-circle {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 3px solid #3498db;
+    padding: 3px;
+    transition: transform 0.3s ease;
+}
+
+.rounded-circle:hover {
+    transform: scale(1.05);
+}
+
+/* Values Cards */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.card-body.text-center {
+    padding: 2.5rem;
+}
+
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 1rem 0;
+}
+
+/* Footer */
+.bg-dark {
+    background: #2c3e50 !important;
+}
+
+footer a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: white;
+}
+
+.social-links .bi {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-links .bi:hover {
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-header {
+        padding: 4rem 0 2rem;
+    }
+    
+    .about-header h1 {
+        font-size: 2rem;
+    }
+    
+    .row.mb-5 {
+        margin-bottom: 3rem !important;
+    }
+    
+    .col-md-6.order-md-1,
+    .col-md-6.order-md-2 {
+        margin-bottom: 2rem;
+    }
+    
+    .rounded-circle {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Animation Effects */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }

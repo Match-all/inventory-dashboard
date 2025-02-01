@@ -11,6 +11,32 @@
     --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+
+/* Advanced Left-Aligned Responsive Search */
+#liveSearch {
+    --primary-gradient: linear-gradient(135deg, #667eea80 0%, #764ba280 100%);
+    --glass-bg: rgb(252, 252, 252);
+    --border-width: 2px;
+    
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem 1.5rem 0.8rem 3rem;
+    border: var(--border-width) solid transparent;
+    border-radius: 2.5rem;
+    background: 
+        var(--glass-bg),
+        var(--primary-gradient);
+    background-clip: padding-box;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    font-size: 0.95rem;
+    color: #2d3748;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+}
+
+
+
 body {
     font-family: 'Helvetica Neue', Arial, sans-serif;
     background-color: var(--background-color);
@@ -307,4 +333,113 @@ body {
 
 .pagination button:hover {
     background-color: #2c003e; /* Darker shade of purple */
+}
+
+/* Lazy load fade-in effect */
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s ease-in;
+}
+
+.lazy.loaded {
+    opacity: 1;
+}
+
+/* Wishlist animation */
+.wishlist-btn.active {
+    animation: pulse 0.5s ease;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+
+
+#liveSearch:focus {
+    outline: none;
+    box-shadow: 
+        0 4px 20px rgba(118, 75, 162, 0.15),
+        inset 0 0 0 var(--border-width) #667eea;
+    padding-left: 3.5rem;
+}
+
+.input-group {
+    position: relative;
+    max-width: 400px;
+    margin-right: auto;
+}
+
+.input-group .btn {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #667eea;
+    z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.input-group .btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+/* Floating placeholder effect */
+#liveSearch::placeholder {
+    color: transparent;
+    transition: all 0.3s ease;
+}
+
+.input-group label {
+    position: absolute;
+    left: 3rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #718096;
+    transition: all 0.3s ease;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.8;
+}
+
+#liveSearch:focus ~ label,
+#liveSearch:not(:placeholder-shown) ~ label {
+    transform: translate(-1.2rem, -200%);
+    opacity: 1;
+    font-size: 0.8rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #liveSearch {
+        max-width: 100%;
+        padding: 0.7rem 1.2rem 0.7rem 2.8rem;
+    }
+    
+    .input-group .btn {
+        left: 0.8rem;
+    }
+    
+    #liveSearch:focus {
+        padding-left: 3rem;
+    }
+}
+
+/* Micro-interaction animations */
+@keyframes input-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(3px); }
+    75% { transform: translateX(-3px); }
+}
+
+#liveSearch:invalid {
+    animation: input-shake 0.3s ease;
 }
