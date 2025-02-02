@@ -8,7 +8,6 @@ const data = {
             const value = context.raw; // Get the data value of the current bar
             if (value >= 70) {
                 return 'rgba(0, 102, 0, 0.7)'; // Bold green for high usage
-            } else if (value >= 50) {
                 return 'rgba(255, 87, 34, 0.7)'; // Bold orange for medium usage
             } else {
                 return 'rgba(211, 47, 47, 0.7)'; // Bold red for low usage
