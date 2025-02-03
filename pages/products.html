@@ -1,21 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products - Shema Park</title>
-    <link rel="shortcut icon" href="favicon.ico" type="./images/logo.png">
-
-    <!-- ADDED: Lazy load library -->
-    <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../css/produts.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <!-- <link rel="stylesheet" href="../css/styles.css"> -->
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -40,30 +32,16 @@
         </div>
     </nav>
 
-     <!-- ADDED: Search bar -->
-     <div class="container mt-4">
-        <div class="input-group mb-4">
-            <input type="text" id="liveSearch" class="form-control" 
-                   placeholder="Search products..." 
-                   aria-label="Product search">
-            <button class="btn btn-outline-secondary" type="button">
-                <i class="bi bi-search"></i>
-            </button>
-            <label for="liveSearch">Search products...</label>
-        </div>
-    </div>
-
     <!-- Products Header -->
     <div class="products-header py-5 bg-light">
         <div class="container">
             <h1>Our Products</h1>
-        </div>
-    </div>
-
-    <!-- ADDED: Loading spinner -->
-    <div id="loadingSpinner" class="text-center d-none">
-        <div class="spinner-border text-primary" role="status">
-            <span class="visually-hidden">Loading...</span>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                    <li class="breadcrumb-item active">Products</li>
+                </ol>
+            </nav>
         </div>
     </div>
 
@@ -76,8 +54,7 @@
                 <div class="mb-4">
                     <h5>Price Range</h5>
                     <input type="range" class="form-range" id="priceRange" min="0" max="500" step="10" value="500">
-                    <input type="number" id="priceInput" min="0" max="500" step="10" value="500"
-                        class="form-control mt-2">
+                    <input type="number" id="priceInput" min="0" max="500" step="10" value="500" class="form-control mt-2">
                     <p>Max Price: <span id="priceValue">$500</span></p>
                 </div>
                 <div class="mb-4">
@@ -110,26 +87,9 @@
                 <div class="row" id="products-grid">
                     <!-- Products will be dynamically loaded here -->
                 </div>
-                            <!-- Products Grid -->
-            <div class="col-md-9">
-                <div class="row" id="products-grid">
-                    <!-- Products will be dynamically loaded here -->
-                </div>
-                <div class="pagination">
-                    <button class="btn btn-outline-primary" id="previousPage">Previous</button>
-                    <button class="btn btn-outline-primary" id="nextPage">Next</button>
-                </div>
             </div>
-            </div>
-
         </div>
     </div>
-
-    <!-- ADDED: Scroll to top button -->
-    <button id="scrollTop" class="btn btn-primary rounded-circle shadow-lg" 
-            style="position: fixed; bottom: 20px; right: 20px; display: none;">
-        <i class="bi bi-arrow-up"></i>
-    </button>
 
     <!-- Footer -->
     <!-- (Same footer as index.html) -->
@@ -152,8 +112,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" onclick="proceedToCheckout()">Proceed to
-                        Checkout</button>
+                    <button type="button" class="btn btn-primary" onclick="proceedToCheckout()">Proceed to Checkout</button>
                 </div>
             </div>
         </div>
@@ -164,9 +123,9 @@
             if (!toastContainer) return;
 
             const toast = document.createElement('div');
-            const bgColor = type === 'error' ? 'danger' :
-                type === 'warning' ? 'warning' : 'success';
-
+            const bgColor = type === 'error' ? 'danger' : 
+                           type === 'warning' ? 'warning' : 'success';
+            
             toast.className = `toast align-items-center text-white bg-${bgColor} border-0`;
             toast.setAttribute('role', 'alert');
             toast.innerHTML = `
@@ -189,7 +148,7 @@
                     credentials: 'include'
                 });
                 const data = await response.json();
-
+                
                 if (data.success) {
                     // User is authenticated, proceed to checkout
                     window.location.href = 'checkout.html';
@@ -210,56 +169,11 @@
         }
     </script>
 
-
     <!-- Toast Container for Notifications -->
     <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toast-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="../js/cart.js"></script>
     <script src="../js/main.js"></script>
-
-
-    <!-- ADDED: Advanced features script -->
-    <script>
-        // Lazy load images
-        const lazyLoadInstance = new LazyLoad({
-            elements_selector: ".lazy",
-            threshold: 100,
-            callback_loaded: (el) => {
-                el.parentElement.classList.add('loaded')
-            }
-        });
-
-        // Live search functionality
-        document.getElementById('liveSearch').addEventListener('input', function(e) {
-            const searchTerm = e.target.value.toLowerCase();
-            const products = document.querySelectorAll('#products-grid .product-card');
-            
-            products.forEach(product => {
-                const text = product.innerText.toLowerCase();
-                product.style.display = text.includes(searchTerm) ? 'block' : 'none';
-            });
-        });
-
-        // Scroll to top button
-        window.addEventListener('scroll', () => {
-            const scrollTop = document.getElementById('scrollTop');
-            scrollTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-        });
-
-        document.getElementById('scrollTop').addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-
-        // Wishlist functionality
-        document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('wishlist-btn')) {
-                e.target.classList.toggle('active');
-                const productId = e.target.dataset.productId;
-                // Add wishlist logic here
-            }
-        });
-    </script>
 </body>
-
-</html>
+</html> 

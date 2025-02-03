@@ -4,14 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shema Park - Ethiopian Cultural Weaving Products</title>
-    <link rel="shortcut icon" href="favicon.ico" type="./images/">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
- 
+    <script src="js/darkMode.js" defer></script>
 </head>
 <body>
+    
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
         <div class="container">
@@ -67,6 +66,42 @@
         </div>
     </nav>
 
+    <!-- Add this right after your navigation -->
+    <div class="theme-control-bar">
+        <div class="container">
+            <div class="theme-control-wrapper">
+                <div class="theme-status">
+                    <i class="bi bi-palette-fill"></i>
+                    <span class="current-theme">Current Theme: <span class="theme-name">Light</span></span>
+                </div>
+                <div class="theme-options">
+                    <button class="theme-icon-btn" data-theme="light" aria-label="Light Theme">
+                        <i class="bi bi-brightness-high"></i>
+                        <span>Light</span>
+                    </button>
+                    <button class="theme-icon-btn" data-theme="dim" aria-label="Dim Theme">
+                        <i class="bi bi-cloud-moon"></i>
+                        <span>Dim</span>
+                    </button>
+                    <button class="theme-icon-btn" data-theme="dark" aria-label="Dark Theme">
+                        <i class="bi bi-moon-stars"></i>
+                        <span>Dark</span>
+                    </button>
+                    <button class="theme-icon-btn" data-theme="system" aria-label="System Theme">
+                        <i class="bi bi-display"></i>
+                        <span>System</span>
+                    </button>
+                </div>
+                <div class="theme-toggle">
+                    <button id="darkModeToggle" class="dark-mode-btn" aria-label="Toggle Dark Mode">
+                        <i class="bi bi-moon-fill moon-icon"></i>
+                        <i class="bi bi-sun-fill sun-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero-section">
         <div class="container text-center">
@@ -80,7 +115,9 @@
     <section class="container py-5">
         <div class="featured-products">
             <h2 class="text-center mb-4">Featured Products</h2>
-            <p>At Shema Park, we proudly showcase a selection of our finest handcrafted creations that celebrate Ethiopian culture and craftsmanship. Each product reflects the skill and dedication of our artisans, ensuring a unique and authentic experience for our customers.</p>
+            <div class="description">
+                <p>At Shema Park, we proudly showcase a selection of our finest handcrafted creations that celebrate Ethiopian culture and craftsmanship. Each product reflects the skill and dedication of our artisans, ensuring a unique and authentic experience for our customers.</p>
+            </div>
             <hr>
             <div id="featuredProductsCarousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
@@ -164,7 +201,6 @@
             </div>
         </div>
     </section>
-    
 
     <!-- Categories -->
     <section class="bg-light py-5">
@@ -202,57 +238,80 @@
         </div>
     </section>
 
-
-    <section class="featured-collection">
+    <section class="featured-collection py-5" style="background: linear-gradient(135deg, #f6f8fd 0%, #f1f4f9 100%);">
         <div class="container">
-            <h3 class="mb-4">Explore Our Featured Collection</h3>
-            <ol class="list-unstyled">
-                <li class="mb-3">
-                    <strong>Traditional Shema Garments</strong>
+            <div class="bg-white p-4 rounded shadow-lg" style="border: 1px solid rgba(0,0,0,0.08);">
+                <h3 class="mb-4" style="color: #2c3e50; font-weight: 600;">Explore Our Featured Collection</h3>
+                <ol class="list-unstyled">
+                    <li class="mb-3 p-3 rounded" style="background: linear-gradient(to right, #ffffff, #f8f9fa); border-left: 4px solid #3498db; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Traditional Shema Garments</strong>
+                        <ul class="list-unstyled mt-2" style="color: #576574;">
+                            <li class="mb-1">Elegant, handwoven cultural clothing, perfect for special occasions and celebrations.</li>
+                            <li class="mb-1">Vibrant colors and intricate patterns inspired by Ethiopian heritage.</li>
+                        </ul>
+                    </li>
+                    <li class="mb-3 p-3 rounded" style="background: linear-gradient(to right, #ffffff, #f8f9fa); border-left: 4px solid #e74c3c; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Handcrafted Scarves</strong>
+                        <ul class="list-unstyled mt-2" style="color: #576574;">
+                            <li class="mb-1">Lightweight and beautifully designed scarves made from natural fibers.</li>
+                            <li class="mb-1">Perfect as a stylish accessory or a thoughtful gift.</li>
+                        </ul>
+                    </li>
+                    <li class="mb-3 p-3 rounded" style="background: linear-gradient(to right, #ffffff, #f8f9fa); border-left: 4px solid #27ae60; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Decorative Home Textiles</strong>
+                        <ul class="list-unstyled mt-2" style="color: #576574;">
+                            <li class="mb-1">Unique woven table runners, pillow covers, and wall hangings.</li>
+                            <li class="mb-1">Bring a touch of Ethiopian tradition to your living space.</li>
+                        </ul>
+                    </li>
+                    <li class="mb-3 p-3 rounded" style="background: linear-gradient(to right, #ffffff, #f8f9fa); border-left: 4px solid #9b59b6; box-shadow: 0 2px 4px rgba(0,0,0,0.04);">
+                        <strong style="color: #2c3e50; font-size: 1.1em;">Custom Orders</strong>
+                        <ul class="list-unstyled mt-2" style="color: #576574;">
+                            <li class="mb-1">Tailored products designed to meet your specific needs.</li>
+                            <li class="mb-1">Personalize colors, patterns, and styles for a one-of-a-kind piece.</li>
+                        </ul>
+                    </li>
+                </ol>
+                <hr class="my-4" style="border-color: rgba(0,0,0,0.1);">
+                <div class="p-4 rounded" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); border: 1px solid rgba(0,0,0,0.05);">
+                    <h3 class="mb-4" style="color: #2c3e50; font-weight: 600;">Why Choose Shema Park's Products?</h3>
                     <ul class="list-unstyled">
-                        <li class="mb-1">Elegant, handwoven cultural clothing, perfect for special occasions and celebrations.</li>
-                        <li class="mb-1">Vibrant colors and intricate patterns inspired by Ethiopian heritage.</li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <span class="me-2" style="font-size: 1.5em;">✨</span>
+                            <div>
+                                <strong style="color: #2c3e50;">Authenticity</strong>
+                                <span style="color: #576574;">: Products made using traditional weaving techniques.</span>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <span class="me-2" style="font-size: 1.5em;">🏆</span>
+                            <div>
+                                <strong style="color: #2c3e50;">Quality</strong>
+                                <span style="color: #576574;">: Durable and beautifully crafted items.</span>
+                            </div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-center">
+                            <span class="me-2" style="font-size: 1.5em;">🌍</span>
+                            <div>
+                                <strong style="color: #2c3e50;">Cultural Connection</strong>
+                                <span style="color: #576574;">: Celebrate Ethiopian heritage in your everyday life.</span>
+                            </div>
+                        </li>
                     </ul>
-                </li>
-                <li class="mb-3">
-                    <strong>Handcrafted Scarves</strong>
-                    <ul class="list-unstyled">
-                        <li class="mb-1">Lightweight and beautifully designed scarves made from natural fibers.</li>
-                        <li class="mb-1">Perfect as a stylish accessory or a thoughtful gift.</li>
-                    </ul>
-                </li>
-                <li class="mb-3">
-                    <strong>Decorative Home Textiles</strong>
-                    <ul class="list-unstyled">
-                        <li class="mb-1">Unique woven table runners, pillow covers, and wall hangings.</li>
-                        <li class="mb-1">Bring a touch of Ethiopian tradition to your living space.</li>
-                    </ul>
-                </li>
-                <li class="mb-3">
-                    <strong>Custom Orders</strong>
-                    <ul class="list-unstyled">
-                        <li class="mb-1">Tailored products designed to meet your specific needs.</li>
-                        <li class="mb-1">Personalize colors, patterns, and styles for a one-of-a-kind piece.</li>
-                    </ul>
-                </li>
-            </ol>
-            <hr class="my-4">
-            <h3 class="mb-4">Why Choose Shema Park's Products?</h3>
-            <ul class="list-unstyled">
-                <li class="mb-1"><strong>Authenticity</strong>: Products made using traditional weaving techniques.</li>
-                <li class="mb-1"><strong>Quality</strong>: Durable and beautifully crafted items.</li>
-                <li class="mb-1"><strong>Cultural Connection</strong>: Celebrate Ethiopian heritage in your everyday life.</li>
-            </ul>
-            <p class="mb-5">Discover the artistry and passion behind each piece by exploring our full collection. Let us bring a touch of Ethiopia's cultural beauty to your world!</p>
+                    <p class="mb-0 mt-3" style="color: #576574; font-style: italic; line-height: 1.6;">
+                        Discover the artistry and passion behind each piece by exploring our full collection. Let us bring a touch of Ethiopia's cultural beauty to your world!
+                    </p>
+                </div>
+            </div>
         </div>
     </section>
-
+    
     <!-- About Preview -->
-    <section class="about-preview container py-5">
+    <section class="container py-5">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h2 class="mb-4">About Shema Park</h2>
-                <p class="mb-4">Discover the rich heritage of Ethiopian weaving at Shema Park. We bring you authentic, handcrafted textiles that combine traditional techniques with contemporary designs.</p>
+                <h2>About Shema Park</h2>
+                <p>Discover the rich heritage of Ethiopian weaving at Shema Park. We bring you authentic, handcrafted textiles that combine traditional techniques with contemporary designs.</p>
                 <a href="pages/about.html" class="btn btn-outline-primary">Learn More</a>
             </div>
             <div class="col-md-6">
@@ -262,7 +321,7 @@
     </section>
 
     <!-- Newsletter -->
-    <section class="newsletter bg-light py-5">
+    <section class="bg-light py-5">
         <div class="container text-center">
             <h2>Stay Updated</h2>
             <p>Subscribe to our newsletter for the latest products and Ethiopian cultural insights.</p>

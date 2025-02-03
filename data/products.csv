@@ -1,7 +1,7 @@
 id,name,description,price,image,stock,category
-1,Traditional Shema,Beautiful handwoven traditional Ethiopian Shema,199.99,../images/g,10,shema
+1,Traditional Shema,Beautiful handwoven traditional Ethiopian Shema,199.99,../images/shema1.jpg,10,shema
 2,Classic Tibeb,Elegant Ethiopian Tibeb with intricate patterns,249.99,../images/tibeb1.jpg,8,tibeb
-3,White Netela,Pure white Ethiopian Netela with decorative borders,149.99,../images/Products/White Netela.jpg,15,netela
+3,White Netela,Pure white Ethiopian Netela with decorative borders,149.99,../images/netela1.jpg,15,netela
 4,Premium Shema Set,Complete traditional outfit with premium cotton,199.99,https://via.placeholder.com/300x200?text=Premium+Shema+Set,15,shema
 5,Decorative Tibeb Runner,Table runner with traditional Ethiopian patterns,59.99,https://via.placeholder.com/300x200?text=Tibeb+Runner,40,tibeb
 6,Modern Netela Wrap,Contemporary take on traditional Netela design,89.99,https://via.placeholder.com/300x200?text=Modern+Netela,35,netela

@@ -206,15 +206,6 @@ class Cart {
         if (checkoutBtn) {
             checkoutBtn.addEventListener('click', () => this.checkoutClicked());
         }
-
-        // Previous and Next buttons
-        document.getElementById('previousPage').addEventListener('click', function() {
-            console.log('Previous page');
-        });
-
-        document.getElementById('nextPage').addEventListener('click', function() {
-            console.log('Next page');
-        });
     }
 }
 
