@@ -1,1 +1,126 @@
- 
+/* 1. Core Variables and Theme Settings */
+:root {
+    /* Primary Colors */
+    --red-primary: #ff3b3b;
+    --red-light: #ff5252;
+    --red-dark: #d32f2f;
+    
+    --yellow-primary: #ffd700;
+    --yellow-light: #ffe03d;
+    --yellow-dark: #ffc400;
+    
+    --black-primary: #1a1a1a;
+    --black-light: #2c2c2c;
+    --black-dark: #000000;
+
+    /* Gradient Combinations */
+    --gradient-fire: linear-gradient(135deg, var(--red-primary), var(--yellow-primary));
+    --gradient-sunset: linear-gradient(45deg, var(--red-dark), var(--yellow-light));
+    --gradient-night: linear-gradient(135deg, var(--black-primary), var(--black-light));
+    
+    /* Hover Effects */
+    --hover-shadow-red: 0 5px 15px rgba(255, 59, 59, 0.4);
+    --hover-shadow-yellow: 0 5px 15px rgba(255, 215, 0, 0.4);
+    --hover-shadow-black: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* 2. Base Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* 3. Theme Variations */
+/* Light Theme */
+body[data-theme="light"] {
+    /* ... existing light theme styles ... */
+}
+
+/* Dark Theme */
+body[data-theme="dark"] {
+    /* ... existing dark theme styles ... */
+}
+
+/* Dim Theme */
+body[data-theme="dim"] {
+    /* ... existing dim theme styles ... */
+}
+
+/* 4. Layout Components */
+/* Header and Navigation */
+.navbar {
+    /* ... existing navbar styles ... */
+}
+
+/* Hero Section */
+.hero-section {
+    /* ... existing hero styles ... */
+}
+
+/* Featured Products */
+.featured-products {
+    /* ... existing featured products styles ... */
+}
+
+/* Product Categories */
+.product-categories {
+    /* ... existing product categories styles ... */
+}
+
+/* Featured Collection */
+.featured-collection {
+    /* ... existing featured collection styles ... */
+}
+
+/* Footer */
+.footer {
+    /* ... existing footer styles ... */
+}
+
+/* 5. Common Components */
+/* Buttons */
+.btn-primary,
+.action-button {
+    /* ... existing button styles ... */
+}
+
+/* Cards */
+.card {
+    /* ... existing card styles ... */
+}
+
+/* Forms */
+.form-control,
+.custom-checkbox {
+    /* ... existing form styles ... */
+}
+
+/* 6. Utilities */
+/* Animations */
+@keyframes gradientSlide {
+    /* ... existing animation ... */
+}
+
+@keyframes borderSlide {
+    /* ... existing animation ... */
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* 7. Media Queries */
+@media (max-width: 992px) {
+    /* ... existing media queries ... */
+}
+
+@media (max-width: 768px) {
+    /* ... existing media queries ... */
+}
+
+@media print {
+    /* ... existing print styles ... */
+} 

@@ -1,0 +1,216 @@
+/* Products Page Specific Styles */
+
+/* Products Header */
+.products-header {
+    background: var(--gradient-night);
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+}
+
+.products-header h1 {
+    color: var(--yellow-primary);
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.breadcrumb {
+    background: transparent;
+}
+
+.breadcrumb-item a {
+    color: var(--yellow-light);
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: var(--red-light);
+}
+
+/* Filters Section */
+.filters-section {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.filters-section h4 {
+    color: var(--black-primary);
+    border-bottom: 2px solid var(--yellow-primary);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.filters-section h5 {
+    color: var(--black-light);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Price Range Slider */
+.form-range::-webkit-slider-thumb {
+    background: var(--red-primary);
+}
+
+.form-range::-webkit-slider-runnable-track {
+    background: var(--yellow-light);
+}
+
+/* Category Checkboxes */
+.form-check-input:checked {
+    background-color: var(--red-primary);
+    border-color: var(--red-primary);
+}
+
+.form-check-label {
+    color: var(--black-light);
+    cursor: pointer;
+}
+
+/* Sort Dropdown */
+.form-select {
+    border-color: var(--yellow-primary);
+}
+
+.form-select:focus {
+    border-color: var(--red-primary);
+    box-shadow: 0 0 0 0.25rem rgba(255, 59, 59, 0.25);
+}
+
+/* Products Grid */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Product Card */
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--hover-shadow-yellow);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--yellow-primary);
+}
+
+.product-details {
+    padding: 1.5rem;
+}
+
+.product-title {
+    color: var(--black-primary);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.product-price {
+    color: var(--red-primary);
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.product-description {
+    color: var(--black-light);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+/* Add to Cart Button */
+.btn-add-to-cart {
+    background: var(--gradient-fire);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+    transform: scale(1.02);
+    box-shadow: var(--hover-shadow-red);
+}
+
+/* Product Badge */
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--gradient-sunset);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .products-header {
+        padding: 2rem 0;
+    }
+
+    .products-header h1 {
+        font-size: 2rem;
+    }
+
+    .filters-section {
+        margin-bottom: 2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
+}
+
+/* Loading Animation */
+.products-loading {
+    text-align: center;
+    padding: 2rem;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--yellow-light);
+    border-top: 5px solid var(--red-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Empty State */
+.no-products {
+    text-align: center;
+    padding: 3rem;
+    color: var(--black-light);
+}
+
+.no-products i {
+    font-size: 3rem;
+    color: var(--yellow-primary);
+    margin-bottom: 1rem;
+} 
