@@ -140,7 +140,7 @@
             setTimeout(async () => {
                 if (paymentAmount) {
                     // Save order to CSV
-                    const saveResult = await saveOrder(name, email, address, paymentAmount);
+                    const saveResult = await saveOrderToCSV(name, email, address, paymentAmount);
                     if (saveResult) {
                         // Show success modal
                         const successModal = new bootstrap.Modal(document.getElementById('successModal'));
@@ -156,31 +156,30 @@
             }, 1000);
         }
 
-        async function saveOrder(name, email, address, total) {
+        async function saveOrderToCSV(name, email, address, total) {
             try {
-                // Generate a random 6-digit order ID
-                const orderId = Math.floor(100000 + Math.random() * 900000);
-                
                 const response = await fetch('/api/saveOrder', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    credentials: 'include', // Important for session cookies
                     body: JSON.stringify({
-                        email: email,
-                        orderId: orderId,
+                        userId: email, // This should be replaced with the actual user ID from the session
+                        orderId: Math.floor(Math.random() * 1000000),
+                        date: new Date().toISOString(),
+                        status: 'Completed',
                         items: cart.items,
-                        total: parseFloat(total)
+                        total: total
                     })
                 });
-
-                if (!response.ok) {
-                    throw new Error('Failed to save order');
-                }
-
                 const data = await response.json();
-                return data.success;
+                if (data.success) {
+                    console.log('Order saved successfully');
+                    return true;
+                } else {
+                    console.error('Failed to save order');
+                    return false;
+                }
             } catch (error) {
                 console.error('Error saving order:', error);
                 return false;

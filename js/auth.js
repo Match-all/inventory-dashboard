@@ -14,9 +14,8 @@ async function handleRegister(event) {
 
     try {
         const formData = new FormData(event.target);
-        const response = await fetch('/api/register', {
+        const response = await fetch(`${API_URL}/register`, {
             method: 'POST',
-            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -31,16 +30,10 @@ async function handleRegister(event) {
         console.log('Registration response:', data);
 
         if (data.success) {
-            showToast('Registration successful!', 'success');
-            // Store minimal user data in localStorage
-            localStorage.setItem('user', JSON.stringify({
-                name: data.user.name,
-                email: data.user.email
-            }));
-            
-            // Redirect after successful registration
+            showToast('Registration successful! Redirecting to home page...', 'success');
+            event.target.reset();
             setTimeout(() => {
-                window.location.href = '/';
+                window.location.href = '/index.html'; // Redirect to home page
             }, 1000);
         } else {
             showToast(data.message || 'Registration failed', 'error');
@@ -56,7 +49,7 @@ async function handleLogin(event) {
     
     try {
         const formData = new FormData(event.target);
-        const response = await fetch('/api/login', {
+        const response = await fetch(`${API_URL}/login`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -71,16 +64,10 @@ async function handleLogin(event) {
         const data = await response.json();
 
         if (data.success) {
-            showToast('Login successful!', 'success');
-            // Store minimal user data in localStorage
-            localStorage.setItem('user', JSON.stringify({
-                name: data.user.name,
-                email: data.user.email
-            }));
-            
-            // Redirect after successful login
+            showToast('Login successful! Redirecting to home page...', 'success');
+            localStorage.setItem('user', JSON.stringify(data.user));
             setTimeout(() => {
-                window.location.href = '/';
+                window.location.href = '/index.html'; // Redirect to home page
             }, 1000);
         } else {
             showToast(data.message || 'Login failed', 'error');
@@ -144,42 +131,27 @@ function togglePassword(inputId) {
     }
 }
 
-// Check authentication status
-async function checkAuthStatus() {
-    try {
-        const response = await fetch('/api/check-auth', {
-            credentials: 'include'
-        });
-        const data = await response.json();
-        return data.success;
-    } catch (error) {
-        console.error('Auth check error:', error);
-        return false;
-    }
-}
-
-// Initialize auth check on page load
-document.addEventListener('DOMContentLoaded', async () => {
-    const isAuthenticated = await checkAuthStatus();
-    if (!isAuthenticated && !window.location.pathname.includes('auth.html')) {
-        window.location.href = '/pages/auth.html';
-    }
-});
-
-// Handle logout
 async function handleLogout() {
     try {
-        const response = await fetch('/api/logout', {
+        const response = await fetch(`${API_URL}/logout`, {
             method: 'POST',
             credentials: 'include'
         });
+
         const data = await response.json();
         
         if (data.success) {
-            // Clear local storage
             localStorage.removeItem('user');
-            // Redirect to home page
-            window.location.href = '/index.html';
+            showToast('Logged out successfully', 'success');
+            
+            // Update UI
+            const loggedOutLinks = document.querySelector('.logged-out-links');
+            const loggedInLinks = document.querySelector('.logged-in-links');
+            
+            if (loggedOutLinks && loggedInLinks) {
+                loggedOutLinks.classList.remove('d-none');
+                loggedInLinks.classList.add('d-none');
+            }
         } else {
             showToast('Logout failed', 'error');
         }
@@ -189,15 +161,27 @@ async function handleLogout() {
     }
 }
 
-// Check authentication on profile page load
-if (window.location.pathname.includes('profile.html')) {
-    document.addEventListener('DOMContentLoaded', async () => {
-        const isAuthenticated = await checkAuthStatus();
-        if (isAuthenticated) {
-            loadUserProfile();
-            loadUserOrders();
+async function checkAuthStatus() {
+    try {
+        const response = await fetch(`${API_URL}/check-auth`, {
+            credentials: 'include'
+        });
+        const data = await response.json();
+
+        if (data.success) {
+            const loggedOutLinks = document.querySelector('.logged-out-links');
+            const loggedInLinks = document.querySelector('.logged-in-links');
+            const userNameDisplay = document.getElementById('userNameDisplay');
+
+            if (loggedOutLinks && loggedInLinks && userNameDisplay) {
+                loggedOutLinks.classList.add('d-none');
+                loggedInLinks.classList.remove('d-none');
+                userNameDisplay.textContent = data.user.name;
+            }
         }
-    });
+    } catch (error) {
+        console.error('Auth check error:', error);
+    }
 }
 
 // Add toast container if it doesn't exist
